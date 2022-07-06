@@ -4,8 +4,6 @@
 
 int lru[FRAMES_MEMORIA+2];
 
-bool memoria_vazia();
-bool memoria_cheia();
 void inicializa_lru();
 bool memoria_cheia();
 bool memoria_vazia();

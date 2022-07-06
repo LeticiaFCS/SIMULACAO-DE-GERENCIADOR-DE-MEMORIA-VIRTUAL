@@ -6,7 +6,7 @@
 
 #include "lru.h" 
 
- 
+#define debug 
 
  
 void inserir_pagina(int processo, int pagina);
@@ -59,7 +59,7 @@ long int diferenca_tempo(struct timeval inicio, struct timeval fim){
 
 /*}*/
 
-
+ 
 void simulacao_gerenciador_memoria(){
 	
 	struct timeval tempo_inicio, tempo_atual, tempo_anterior;
@@ -83,8 +83,8 @@ void simulacao_gerenciador_memoria(){
 		}	
 		for(i = 0; i < criados; i++){
 			int pagina = rand() % LIM_PAGINAS;
+			printf("\tProcesso %d alocando a pagina %d\n\n", i, pagina);
 			inserir_pagina(i, pagina);
-			printf("\tProcesso %d alocou a pagina %d\n\n", i, pagina);
 			int j;
 			puts("\tTabela de paginas: ");
 			printf("\t\tpagina\tP\tM\tendereco\n");
@@ -93,7 +93,7 @@ void simulacao_gerenciador_memoria(){
 				if(pagina.P){
 					printf("\t\t%d\t%d\t%d\t%d\n", j, pagina.P, pagina.M, pagina.endereco);
 				}
-			}
+			} 
 			puts("");
 			puts("");
 			imprime_lru();	
@@ -152,17 +152,26 @@ void inserir_pagina(int processo, int pagina){
 						
 		int pos;
 		if( memoria_cheia() ){
+			debug("memoria cheia funcionando\n");
 			pos = front_lru();
+			debug("front funcionando\n");
 			pop_lru();
+			debug("pop funcionando\n");
 			frame_t f_pop = int_para_frame( memoria_principal[pos] );
 			remove_frame(f_pop);
-		}  else {
+			debug("remove frame funcionando\n");
+		}  
+		else {
 			for(pos = 0; pos < FRAMES_MEMORIA; pos++){
 				if( int_para_frame( memoria_principal[pos] ).P == 0 )
 					break;
 			}
 		}
 		
+		debug("pos = %d frames_memoria = %d \n", pos, FRAMES_MEMORIA);
+		
+		
+				
 		push_lru(pos);
 		
 		frame_t f;

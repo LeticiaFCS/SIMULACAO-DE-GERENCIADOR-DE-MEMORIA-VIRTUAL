@@ -1,0 +1,294 @@
+Processo 0 criado
+	Processo 0 alocando a pagina 7
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		7	1	0	0
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+ 
+-------------------------------------------------------------------------
+Processo 1 criado
+	Processo 0 alocando a pagina 6
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		6	1	0	1
+		7	1	0	0
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+		1		0		6
+ 
+	Processo 1 alocando a pagina 1
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		1	1	0	2
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+		1		0		6
+		2		1		1
+ 
+-------------------------------------------------------------------------
+Processo 2 criado
+	Processo 0 alocando a pagina 3
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		3	1	0	3
+		6	1	0	1
+		7	1	0	0
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+		1		0		6
+		2		1		1
+		3		0		3
+ 
+	Processo 1 alocando a pagina 1
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		1	1	0	2
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+		1		0		6
+		2		0		3
+		3		1		1
+ 
+	Processo 2 alocando a pagina 7
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		7	1	0	4
+
+
+	LRU
+		posicao		processo	pagina
+		0		0		7
+		1		0		6
+		2		0		3
+		3		1		1
+		4		2		7
+ 
+-------------------------------------------------------------------------
+Processo 3 criado
+	Processo 0 alocando a pagina 2
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		2	1	0	5
+		3	1	0	3
+		6	1	0	1
+
+
+	LRU
+		posicao		processo	pagina
+		1		0		6
+		2		0		3
+		3		1		1
+		4		2		7
+		5		0		2
+ 
+	Processo 1 alocando a pagina 4
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		1	1	0	2
+		4	1	0	6
+
+
+	LRU
+		posicao		processo	pagina
+		1		0		6
+		2		0		3
+		3		1		1
+		4		2		7
+		5		0		2
+		0		1		4
+ 
+	Processo 2 alocando a pagina 1
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		1	1	0	1
+		7	1	0	4
+
+
+	LRU
+		posicao		processo	pagina
+		2		0		3
+		3		1		1
+		4		2		7
+		5		0		2
+		0		1		4
+		1		2		1
+ 
+	Processo 3 alocando a pagina 5
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		5	1	0	3
+
+
+	LRU
+		posicao		processo	pagina
+		3		1		1
+		4		2		7
+		5		0		2
+		0		1		4
+		1		2		1
+		2		3		5
+ 
+-------------------------------------------------------------------------
+	Processo 0 alocando a pagina 2
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		2	1	0	5
+
+
+	LRU
+		posicao		processo	pagina
+		3		1		1
+		4		2		7
+		5		1		4
+		0		2		1
+		1		3		5
+		2		0		2
+ 
+	Processo 1 alocando a pagina 3
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		3	1	0	2
+		4	1	0	6
+
+
+	LRU
+		posicao		processo	pagina
+		4		2		7
+		5		1		4
+		0		2		1
+		1		3		5
+		2		0		2
+		3		1		3
+ 
+	Processo 2 alocando a pagina 2
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		1	1	0	1
+		2	1	0	4
+
+
+	LRU
+		posicao		processo	pagina
+		5		1		4
+		0		2		1
+		1		3		5
+		2		0		2
+		3		1		3
+		4		2		2
+ 
+	Processo 3 alocando a pagina 3
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		3	1	0	6
+		5	1	0	3
+
+
+	LRU
+		posicao		processo	pagina
+		0		2		1
+		1		3		5
+		2		0		2
+		3		1		3
+		4		2		2
+		5		3		3
+ 
+-------------------------------------------------------------------------
+	Processo 0 alocando a pagina 3
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		2	1	0	5
+		3	1	0	1
+
+
+	LRU
+		posicao		processo	pagina
+		1		3		5
+		2		0		2
+		3		1		3
+		4		2		2
+		5		3		3
+		0		0		3
+ 
+	Processo 1 alocando a pagina 6
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		3	1	0	2
+		6	1	0	3
+
+
+	LRU
+		posicao		processo	pagina
+		2		0		2
+		3		1		3
+		4		2		2
+		5		3		3
+		0		0		3
+		1		1		6
+ 
+	Processo 2 alocando a pagina 4
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		2	1	0	4
+		4	1	0	5
+
+
+	LRU
+		posicao		processo	pagina
+		3		1		3
+		4		2		2
+		5		3		3
+		0		0		3
+		1		1		6
+		2		2		4
+ 
+	Processo 3 alocando a pagina 2
+
+	Tabela de paginas: 
+		pagina	P	M	endereco
+		2	1	0	2
+		3	1	0	6
+
+
+	LRU
+		posicao		processo	pagina
+		4		2		2
+		5		3		3
+		0		0		3
+		1		1		6
+		2		2		4
+		3		3		2
+ 
+-------------------------------------------------------------------------
