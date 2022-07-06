@@ -1,6 +1,6 @@
 #include "variaveis_globais.h"
 #include "frames.h"
-#include "paginas.h"
+#include "paginas.h" 
 
 int lru[FRAMES_MEMORIA+2];
 
@@ -114,7 +114,7 @@ void imprime_lru(){
 		printf("\tLRU vazio\n");
 	else {
 		printf("\tLRU\n");
-		printf("\t\tposicao\t\tprocesso\tpagina\n");
+		printf("\t\tposicao\t\t\tprocesso\t\tpagina\n");
 		if( lru[COMECO_LRU] < lru[FIM_LRU]){
 			int i;
 			for(i = lru[COMECO_LRU]; i < lru[FIM_LRU]; i++){
@@ -122,10 +122,9 @@ void imprime_lru(){
 				
 				frame_t atual = int_para_frame(memoria_principal[pos]);
 				if(atual.P == 0)
-					/*printf("\t\tposicao = %d: vazio\n", i);*/printf("\t\t%d\t\tvazio\n", i);
+					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					/*printf("\t\tposicao = %d: processo = %d, pagina = %d\n", i, atual.processo, atual.pagina);*/
-					printf("\t\t%d\t\t%d\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}
 		} else {
@@ -135,10 +134,9 @@ void imprime_lru(){
 				
 				frame_t atual = int_para_frame(memoria_principal[pos]);
 				if(atual.P == 0)
-					/*printf("\t\tposicao = %d: vazio\n", i);*/printf("\t\t%d\t\tvazio\n", i);
+					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					/*printf("\t\tposicao = %d: processo = %d, pagina = %d\n", i, atual.processo, atual.pagina);*/
-					printf("\t\t%d\t\t%d\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}
 			for(i = 0; i < lru[FIM_LRU]; i++){
@@ -146,10 +144,9 @@ void imprime_lru(){
 				
 				frame_t atual = int_para_frame(memoria_principal[pos]);
 				if(atual.P == 0)
-					/*printf("\t\tposicao = %d: vazio\n", i);*/printf("\t\t%d\t\tvazio\n", i);
+					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					/*printf("\t\tposicao = %d: processo = %d, pagina = %d\n", i, atual.processo, atual.pagina);*/
-					printf("\t\t%d\t\t%d\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}		
 		}	

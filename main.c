@@ -4,16 +4,13 @@
 #include <stdbool.h>
 #include <sys/time.h>
 
-#include "lru.h" 
-
-#define debug 
+#include "lru.h"
 
  
 void inserir_pagina(int processo, int pagina);
 
 void simulacao_gerenciador_memoria(); 
 
-//TO DO contador de page faults
 int main(){
 	inicializa_lru();	
 	memset( working_set, -1, sizeof(working_set) );
@@ -28,38 +25,7 @@ long int diferenca_tempo(struct timeval inicio, struct timeval fim){
 		 - (inicio.tv_sec * 1000000 + inicio.tv_usec);
 
 }
- 
-/*void print_estado(){*/
-/*	puts("");*/
-/*	printf("Memoria principal: \n");*/
-/*	int i, j;*/
-/*	for(i = 0; i < FRAMES_MEMORIA; i++){*/
-/*		frame_t atual = int_para_frame(memoria_principal[i]);*/
-/*		if(atual.P == 0)*/
-/*			printf("\tposicao = %d: vazio\n", i);*/
-/*		else*/
-/*			printf("\tposicao = %d: processo = %d, pagina = %d\n", i, atual.processo, atual.pagina);*/
-/*	}*/
-/*	puts("");*/
-/*	*/
-/*	*/
-/*	puts("");*/
-/*	*/
-/*	printf("Working set dos processos\n");*/
-/*	for(i = 0; i < criados; i++){*/
-/*		printf(" processo %d\n\t", i);*/
-/*		for(j=0; j<WORKING_SET_LIMIT; j++)*/
-/*			if(working_set[i][j] != -1)*/
-/*				printf("%d ", working_set[i][j]);*/
-/*		puts("");*/
-/*	}*/
-/*	puts("");*/
-/*	puts("-----------------------------------------------------------------------------------------------------------");*/
-   
 
-/*}*/
-
- 
 void simulacao_gerenciador_memoria(){
 	
 	struct timeval tempo_inicio, tempo_atual, tempo_anterior;
@@ -91,7 +57,7 @@ void simulacao_gerenciador_memoria(){
 			for(j=0; j<LIM_PAGINAS; j++){
 				pagina_t pagina = int_para_pagina(tabela_de_paginas[i][j]);
 				if(pagina.P){
-					printf("\t\t%d\t%d\t%d\t%d\n", j, pagina.P, pagina.M, pagina.endereco);
+					printf("\t\t%d\t\t%d\t%d\t%d\n", j, pagina.P, pagina.M, pagina.endereco);
 				}
 			} 
 			puts("");
@@ -152,14 +118,10 @@ void inserir_pagina(int processo, int pagina){
 						
 		int pos;
 		if( memoria_cheia() ){
-			debug("memoria cheia funcionando\n");
 			pos = front_lru();
-			debug("front funcionando\n");
 			pop_lru();
-			debug("pop funcionando\n");
 			frame_t f_pop = int_para_frame( memoria_principal[pos] );
 			remove_frame(f_pop);
-			debug("remove frame funcionando\n");
 		}  
 		else {
 			for(pos = 0; pos < FRAMES_MEMORIA; pos++){
@@ -167,11 +129,7 @@ void inserir_pagina(int processo, int pagina){
 					break;
 			}
 		}
-		
-		debug("pos = %d frames_memoria = %d \n", pos, FRAMES_MEMORIA);
-		
-		
-				
+			
 		push_lru(pos);
 		
 		frame_t f;
