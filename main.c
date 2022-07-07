@@ -53,11 +53,11 @@ void simulacao_gerenciador_memoria(){
 			inserir_pagina(i, pagina);
 			int j;
 			puts("\tTabela de paginas: ");
-			printf("\t\tpagina\tP\tM\tendereco\n");
+			printf("\t\tpag\t\tendereco\n");
 			for(j=0; j<LIM_PAGINAS; j++){
 				pagina_t pagina = int_para_pagina(tabela_de_paginas[i][j]);
 				if(pagina.P){
-					printf("\t\t%d\t\t%d\t%d\t%d\n", j, pagina.P, pagina.M, pagina.endereco);
+					printf("\t\t%d\t\t%d\n", j, pagina.endereco);
 				}
 			} 
 			puts("");
@@ -71,6 +71,7 @@ void simulacao_gerenciador_memoria(){
 
 
 void remove_frame(frame_t f){
+	memoria_principal[ int_para_pagina( tabela_de_paginas[ f.processo ][ f.pagina ] ).endereco  ] = 0; //AQUI
 	tabela_de_paginas[ f.processo ][ f.pagina ] = 0;
 	int i;
 	for(i=0; i<WORKING_SET_LIMIT; i++)
@@ -112,12 +113,14 @@ void inserir_pagina(int processo, int pagina){
 			int pagina_a_remover = working_set[processo][0];
 			int endereco_pagina_remover = int_para_pagina( tabela_de_paginas[processo][pagina_a_remover] ).endereco;
 			remove_lru(endereco_pagina_remover);
+			puts("WORKING SET CHEIO"); 
 			frame_t f_remover = int_para_frame( memoria_principal[endereco_pagina_remover] );
 			remove_frame(f_remover);
 		}
 						
 		int pos;
 		if( memoria_cheia() ){
+			puts("MEMORIA CHEIA");
 			pos = front_lru();
 			pop_lru();
 			frame_t f_pop = int_para_frame( memoria_principal[pos] );

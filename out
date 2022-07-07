@@ -1,0 +1,72 @@
+Processo 0 criado
+	Processo 0 alocando a pagina 7
+
+	Tabela de paginas: 
+		pag		endereco
+		7		0
+
+
+	LRU
+		pos			proc		pag
+		0			0			7
+ 
+-------------------------------------------------------------------------
+Processo 1 criado
+	Processo 0 alocando a pagina 6
+
+	Tabela de paginas: 
+		pag		endereco
+		6		1
+		7		0
+
+
+	LRU
+		pos			proc		pag
+		0			0			7
+		1			0			6
+ 
+	Processo 1 alocando a pagina 1
+
+	Tabela de paginas: 
+		pag		endereco
+		1		2
+
+
+	LRU
+		pos			proc		pag
+		0			0			7
+		1			0			6
+		2			1			1
+ 
+-------------------------------------------------------------------------
+	Processo 0 alocando a pagina 3
+
+	Tabela de paginas: 
+		pag		endereco
+		3		3
+		6		1
+		7		0
+
+
+	LRU
+		pos			proc		pag
+		0			0			7
+		1			0			6
+		2			1			1
+		3			0			3
+ 
+	Processo 1 alocando a pagina 1
+
+	Tabela de paginas: 
+		pag		endereco
+		1		2
+
+
+	LRU
+		pos			proc		pag
+		0			0			7
+		1			0			6
+		2			0			3
+		3			1			1
+ 
+-------------------------------------------------------------------------

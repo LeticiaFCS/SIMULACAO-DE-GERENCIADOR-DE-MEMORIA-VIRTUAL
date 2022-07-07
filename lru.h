@@ -114,7 +114,7 @@ void imprime_lru(){
 		printf("\tLRU vazio\n");
 	else {
 		printf("\tLRU\n");
-		printf("\t\tposicao\t\t\tprocesso\t\tpagina\n");
+		printf("\t\tpos\t\t\tproc\t\tpag\n");
 		if( lru[COMECO_LRU] < lru[FIM_LRU]){
 			int i;
 			for(i = lru[COMECO_LRU]; i < lru[FIM_LRU]; i++){
@@ -124,7 +124,7 @@ void imprime_lru(){
 				if(atual.P == 0)
 					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t%d\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}
 		} else {
@@ -136,7 +136,7 @@ void imprime_lru(){
 				if(atual.P == 0)
 					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t%d\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}
 			for(i = 0; i < lru[FIM_LRU]; i++){
@@ -146,7 +146,7 @@ void imprime_lru(){
 				if(atual.P == 0)
 					printf("\t\t\t\t%d\t\t\t\tvazio\n", i);
 				else
-					printf("\t\t%d\t\t\t\t%d\t\t\t\t%d\n", i, atual.processo, atual.pagina);
+					printf("\t\t%d\t\t\t%d\t\t\t%d\n", i, atual.processo, atual.pagina);
 					
 			}		
 		}	
